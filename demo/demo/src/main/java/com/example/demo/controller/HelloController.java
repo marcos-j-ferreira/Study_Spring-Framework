@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/api/v1/estudo")
@@ -18,10 +20,21 @@ public class HelloController {
         return new String("olá, Seja muito bem-vindo!!");
     }
 
+
+    // PathVariable muito parecido com requestparam, mas mudam pouca coisa entre um e outro.
+
+    //permite que use regex no url para requisições.
+
     //  Rota que recebe um param do usuário, e devolve outra resposta.
     @GetMapping("/hello/{name}")
     public String helloNome(@PathVariable String name){
         return new String("Seja bem-vindo, "+name+"!");
+    }
+
+    // path com regex.
+    @GetMapping("/docs/{filename:.+\\.pdf}")
+    public String baixarPdf(@PathVariable String filename) {
+        return "Download do arquivo: " + filename;
     }
 
 
@@ -55,4 +68,12 @@ public class HelloController {
             return new String("Olá, "+ nome);
         }
     }
+
+    // ele pega um query com múltiplos parâmetros e armazena em uma lista
+    @GetMapping("/filter")
+    public String filter(@RequestParam List<String> tag){
+        return "tags: "+ tag+ "\n";
+    }
+
+    
 }
