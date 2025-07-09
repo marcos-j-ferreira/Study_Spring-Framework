@@ -1,16 +1,26 @@
 package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+
+//import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+
+import com.example.demo.dto.EstudoDTO;
+import com.example.demo.dto.ResponseDTO;
 
 @RestController
-@RequestMapping("/api/v1/estudo")
+@RequestMapping("/api/v1/estudo/")
 public class HelloController {
 
 
@@ -75,5 +85,35 @@ public class HelloController {
         return "tags: "+ tag+ "\n";
     }
 
-    
+
+    //Ela volta uma resposta no modelo Json, mas não pode caracter especiais.
+    @PostMapping
+    public Map<String, String> criarEstudo( @RequestBody @Valid EstudoDTO estudo){
+
+        // Volta em um texto.
+        //return "Título: " + estudo.getNome() + ", Descricção: " + estudo.getDescricao() + " \n";
+
+        return Map.of(
+            "Titulo", estudo.getNome(),
+            "Descricao", estudo.getDescricao()
+        );
+    }
+
+    //Cria um DTO para voltar a respostas, mas não pode caracter especial
+    @PostMapping("/teste")
+    public ResponseDTO criarAtividade( @RequestBody @Valid EstudoDTO estudo){
+        return new ResponseDTO(estudo.getNome(), estudo.getDescricao());
+    }
+
+    // Retorna um json, bem mais formatado.
+    @PostMapping("/map")
+    public Map<String, Object> tarefas(@RequestBody(required=false) @Valid EstudoDTO estudo){
+        Map<String, Object> response = new HashMap<>();
+
+        response.put("Nome", estudo.getNome());
+        response.put("Descrição", estudo.getDescricao());
+
+        return response;
+    }
+
 }
