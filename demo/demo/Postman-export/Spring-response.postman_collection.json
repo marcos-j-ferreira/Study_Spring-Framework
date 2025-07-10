@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "746edf3f-b9b0-423a-9ebb-dcd6f0ce8692",
+		"name": "Spring-response",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "44724071",
+		"_collection_link": "https://blue-equinox-1387267.postman.co/workspace/Marcos-J%C3%BAnior-Lemes's-Workspace~f36c54da-d0b4-498f-812b-7dfbd97aade0/collection/44724071-746edf3f-b9b0-423a-9ebb-dcd6f0ce8692?action=share&source=collection_link&creator=44724071"
+	},
+	"item": [
+		{
+			"name": "Response-pre-pronta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BASE_URL}}/value"
+			},
+			"response": []
+		},
+		{
+			"name": "ResponseEntity.ok",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BASE_URL}}/p1/Iphone/1500"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Iphone\",\r\n    \"value\":14000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BASE_URL}}/add"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BASE_URL}}/header"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8081/api/v1/estudo",
+			"type": "string"
+		}
+	]
+}

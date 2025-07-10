@@ -6,6 +6,7 @@ Projeto voltado para aprofundar meus conhecimentos em Spring Boot.
 
 * [Objetivo](#objetivo)
 * [Conteúdos Estudados](#conteúdos-estudados)
+* [Teste realizado](#teste-da-api)
 * [Como Baixar e Rodar](#como-baixar-e-rodar)
 * [Rotas](#rotas)
 * [Atualizações](#atualizações)
@@ -37,6 +38,11 @@ Foram diversos tópicos abordados. A ideia principal era consolidar o conhecimen
 * `@ResponseEntity:` Permite customizar a resposta da requisição, incluindo o corpo, cabeçalhos e status HTTP.
 
 ---
+## Teste da API
+
+Todos os teste durante o desenvolvimento foram feito usando a ferramenta `Postman`.
+
+> Mais informações sobre os teste [README-TESTE](./docs/Teste.md) 
 
 ## Como Baixar e Rodar
 
